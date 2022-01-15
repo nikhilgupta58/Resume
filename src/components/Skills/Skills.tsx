@@ -4,18 +4,20 @@ import {
     Text,
     HStack,
     VStack,
+    Input,
 }
     from '@chakra-ui/react';
 import { Field, Form, Formik } from 'formik';
 import * as React from 'react'
 import { stepStore, userStore } from "../../store";
-import * as yup from 'yup';
+import { IoMdRemoveCircle } from 'react-icons/io'
+import { RiDeleteBin6Line } from 'react-icons/ri'
 import Preview from '../Preview';
-import { AddIcon, MinusIcon } from '@chakra-ui/icons';
+import { Rating } from 'react-simple-star-rating'
+
 
 export default function Skills() {
     const { setStep, step } = stepStore();
-
     return (
         <>
             <Box m={'15px'} width={{ lg: '50vw', md: '70vw', sm: '70vw' }}>
@@ -36,9 +38,10 @@ export default function Skills() {
                 <Box
                     p="40px 10px 0 0"
                 >
-                    <VStack>
-
-                    </VStack>
+                    <Star />
+                    <Star />
+                    <Star />
+                    <Star />
                     <HStack spacing={5} mt={"50px"} justifyContent={"space-between"}>
 
                         <Button
@@ -70,5 +73,41 @@ export default function Skills() {
                 </Box>
             </Box>
         </>
+    )
+}
+
+const Star = () => {
+    const [rating, setRating] = React.useState(0)
+    const handleRating = (rate: number) => {
+        setRating(rate)
+    }
+    return (
+        <HStack m={'25px 100px'} width={'28vw'} spacing={5} alignItems={'center'}>
+            <Box
+                color='#3983fa'
+                cursor={'pointer'}
+                _hover={{ color: 'blue.700' }}
+                onClick={() => handleRating(0)}
+            >
+                <IoMdRemoveCircle size={'25px'} />
+            </Box>
+            <Rating
+                fillColor='#3983fa'
+                onClick={handleRating}
+                ratingValue={rating}
+                transition
+                emptyColor='#666'
+                size={25}
+            />
+            <Input type={'text'} />
+            <Box
+                cursor={'pointer'}
+                color={'gray.700'}
+                _hover={{ color: 'gray.900' }}
+
+            >
+                <RiDeleteBin6Line size={'25px'} />
+            </Box>
+        </HStack>
     )
 }
