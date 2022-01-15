@@ -6,8 +6,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -b master -d build"
   },
   "dependencies": {
     "@chakra-ui/icon": "^2.0.0",
