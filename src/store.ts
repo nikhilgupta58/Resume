@@ -121,7 +121,7 @@ export const userStore = create<UserStore>(
           }));
         },
 
-        skill: [] as Skill[],
+        skill: [{ id: 0, name: '', rating: 0 }] as Skill[],
         setSkill: (skill: Skill) => {
           set((oldState: UserStore) => (
             oldState.skill = oldState.skill.filter((e: Skill) => {

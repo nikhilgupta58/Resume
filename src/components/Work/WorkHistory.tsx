@@ -4,20 +4,7 @@ import {
     Input,
     Stack,
     Text,
-    FormControl,
-    FormLabel,
-    FormErrorMessage,
-    FormHelperText,
     HStack,
-    useDisclosure,
-    Modal,
-    ModalBody,
-    ModalCloseButton,
-    ModalContent,
-    ModalFooter,
-    ModalHeader,
-    ModalOverlay,
-    Textarea,
 }
     from '@chakra-ui/react';
 import * as React from 'react'
@@ -49,12 +36,19 @@ export default function WorkHistory() {
     function order(a: Work, b: Work): number {
         return a.id < b.id ? -1 : (a.id > b.id ? 1 : 0);
     }
-
+    function highestWorkId() {
+        let id = -1
+        work?.map((e) => {
+            if (id < e?.id)
+                id = e?.id
+        })
+        return id
+    }
     const setEditId = (e: number) => {
         setEdit(e)
     }
     if (add != -1) {
-        return (<WorkCard id={add} title={'Tell us about another job'} subtitle={'We’ll put your work history in the right order.'} />)
+        return (<WorkCard id={highestWorkId()+1} title={'Tell us about another job'} subtitle={'We’ll put your work history in the right order.'} />)
     }
 
     else if (edit != -1)
