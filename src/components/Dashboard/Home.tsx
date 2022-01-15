@@ -5,7 +5,7 @@ import Work from "../Work/Work";
 import { stepStore } from "../../store";
 import Education from "../Education/Education";
 import Skills from "../Skills/Skills";
-import Summary from "../Summary";
+import Summary from "../Summary/Summary";
 import Finalize from "../Finalize";
 import Footer from "./Footer";
 import { VStack, Box, HStack, Button, Text } from "@chakra-ui/react";
