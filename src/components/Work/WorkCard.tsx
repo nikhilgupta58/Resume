@@ -30,7 +30,7 @@ import { AddIcon, MinusIcon } from '@chakra-ui/icons';
 
 export default function WorkCard({ id, title, subtitle }: { id: number, title: string, subtitle: string }) {
     const { setStep, step } = stepStore();
-    const { setWork, work } = userStore();
+    const { setWork, work, removeWork } = userStore();
 
     type fieldFromType = {
         field: any;
@@ -145,6 +145,12 @@ export default function WorkCard({ id, title, subtitle }: { id: number, title: s
                             }
                             validationSchema={schema}
                             onSubmit={(values, actions) => {
+                                {
+                                    work.map((e) => {
+                                        if (e.jobTitle === '')
+                                            removeWork(e.id)
+                                    })
+                                }
                                 if (id === 0 && (work[id]?.jobTitle === '' || work.length === 0)) {
                                     onOpen()
                                 }
@@ -311,6 +317,7 @@ export default function WorkCard({ id, title, subtitle }: { id: number, title: s
                                                     <Textarea
                                                         {...field}
                                                         height={"300px"}
+                                                        placeholder='Write your description here'
                                                         id='desc'
                                                         resize={'none'}
                                                         p={'20px'}
@@ -349,7 +356,14 @@ export default function WorkCard({ id, title, subtitle }: { id: number, title: s
                                             fontWeight={"400"}
                                             bgColor={"white"}
                                             border={"1px solid blue"}
-                                            onClick={() => setStep(0)}
+                                            onClick={() => {
+
+                                                work.map((e) => {
+                                                    if (e.jobTitle === '')
+                                                        removeWork(e.id)
+                                                })
+                                                setStep(0)
+                                            }}
                                             px="40px"
                                             _active={{ border: '1px solid blue' }}
                                             _focus={{ border: '1px solid blue' }}

@@ -54,6 +54,8 @@ interface UserStore {
   skill: Skill[];
   setSkill: (skill: Skill) => void;
   removeSkill: (id: number) => void;
+  summary: string;
+  setSummary: (summary: string) => void;
 }
 
 interface StepStore {
@@ -144,6 +146,15 @@ export const userStore = create<UserStore>(
           ));
         },
 
+        summary: '',
+        setSummary: (summary: string) => {
+          set((oldState: UserStore) => (
+            {
+              summary: summary
+            }
+          ))
+        },
+        
       }),
       { name: "user-store" }
     )

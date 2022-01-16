@@ -7,6 +7,20 @@ export default function Resume() {
     return (
         <VStack
             alignItems={'flex-start'}
+            sx={{
+                '&::-webkit-scrollbar': {
+                    width: '7px',
+                    borderRadius: '10px',
+                    backgroundColor: `rgba(0, 0, 0, 0.08)`,
+                    boxShadow: '0 0 1px rgb(0 0 0 / 10%)',
+                    padding: '1px'
+                },
+                '&::-webkit-scrollbar-thumb': {
+                    backgroundColor: `rgba(0, 0, 0, 0.08)`,
+                    padding: '1px',
+                    boxShadow: '0 0 1px rgb(0 0 0 / 10%)',
+                },
+            }}
         >
             <Box
                 w="100%"
