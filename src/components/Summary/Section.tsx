@@ -36,6 +36,8 @@ export default function Section({ setSection: setSectionCheck }: { setSection: (
         section.map((e) => {
             if (customSection.current?.value === e.name)
                 setCheck(true)
+            if (e.custom)
+                setCustomValue(e.name)
         })
     }, [check])
     return (
@@ -95,7 +97,7 @@ export default function Section({ setSection: setSectionCheck }: { setSection: (
                                         }
                                         else {
                                             if (customSection.current?.value != '') {
-                                                setSection({ name: typeof (customSection.current?.value) === 'string' ? customSection.current?.value : '', desc: [] })
+                                                setSection({ name: typeof (customSection.current?.value) === 'string' ? customSection.current?.value : '', desc: [], custom: true })
                                                 setCheck(true)
                                             }
                                         }
@@ -163,7 +165,7 @@ const AddSection = ({ data }: { data: string }) => {
                     setCheck(false)
                 }
                 else {
-                    setSection({ name: data, desc: [] })
+                    setSection({ name: data, desc: [], custom: false })
                     setCheck(true)
                 }
             }}

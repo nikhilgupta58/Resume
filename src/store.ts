@@ -45,7 +45,8 @@ interface Education {
 
 interface Section {
   name: string,
-  desc: string[]
+  desc: string[],
+  custom:boolean
 }
 
 
