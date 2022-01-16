@@ -43,6 +43,12 @@ interface Education {
   desc: string[]
 }
 
+interface Section {
+  name: string,
+  desc: string[]
+}
+
+
 interface UserStore {
   heading: Heading;
   setHeading: (heading: Heading) => void;
@@ -56,6 +62,9 @@ interface UserStore {
   removeSkill: (id: number) => void;
   summary: string;
   setSummary: (summary: string) => void;
+  section: Section[];
+  setSection: (section: Section) => void;
+  removeSection: (name: string) => void;
 }
 
 interface StepStore {
@@ -154,7 +163,30 @@ export const userStore = create<UserStore>(
             }
           ))
         },
-        
+
+        section: [] as Section[],
+        setSection: (section: Section) => {
+          set((oldState: UserStore) => (
+            oldState.section = oldState.section.filter((e: Section) => {
+              return e.name !== section.name
+            }),
+            {
+              section: [
+                ...oldState.section,
+                section
+              ]
+            }
+          ));
+        },
+        removeSection: (name: string) => {
+          set((oldState: UserStore) => (
+            oldState.section = oldState.section.filter((e: Section) => {
+              return e.name !== name
+            }),
+            {}
+          ));
+        },
+
       }),
       { name: "user-store" }
     )

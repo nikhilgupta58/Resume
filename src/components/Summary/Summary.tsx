@@ -11,11 +11,21 @@ import {
 import * as React from 'react'
 import { stepStore, userStore } from "../../store";
 import Preview from '../Preview';
+import Section from './Section';
 
 
 export default function Summary() {
     const { setStep, step } = stepStore();
     const { summary, setSummary } = userStore();
+    const [section, setSection] = React.useState(false)
+
+    const setCheckSec = (e: boolean) => {
+        setSection(e)
+    }
+
+    if (section)
+        return (<Section setSection={setCheckSec} />
+        )
     return (
         <>
             <Box m={'15px'} width={{ lg: '50vw', md: '70vw', sm: '70vw' }}>
@@ -74,7 +84,7 @@ export default function Summary() {
                             bgColor={"white"}
                             border={"1px solid blue"}
                             onClick={() => {
-                                setStep(2)
+                                setStep(3)
                             }}
                             px="40px"
                             _active={{ border: '1px solid blue' }}
@@ -87,7 +97,7 @@ export default function Summary() {
                             colorScheme='red'
                             type='submit'
                             onClick={() => {
-                                setStep(4)
+                                setSection(true)
                             }}
                             px="40px"
                             _active={{ border: 'none' }}
