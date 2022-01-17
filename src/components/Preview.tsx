@@ -42,23 +42,23 @@ export default function Preview() {
                 <ModalOverlay />
                 <ModalContent
                     borderRadius="2px"
-                    h={'40vw'}
+                    maxH={'40vw'}
                     w={'1018px'}
                     minW={'675px'}
                     maxW={'1018px'}
-                    margin={'30px'}
+                    m='0'
                 >
                     <ModalCloseButton
                         right="5"
                         mt="2"
-                        bgColor={"white"}
+                        bgColor={"transparent"}
                         border={"none"}
                         color={'#7b97ae'}
                         _active={{ border: 'none' }}
                         _focus={{ border: 'none' }}
                     />
                     <ModalBody
-                        p={"30px"}
+                        p={"0"}
                         sx={{
                             '&::-webkit-scrollbar': {
                                 width: '7px',
@@ -74,7 +74,7 @@ export default function Preview() {
                             },
                         }}
                     >
-                        <Box h={'1500px'}>
+                        <Box>
                             <Resume />
                         </Box>
                     </ModalBody>

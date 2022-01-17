@@ -60,13 +60,11 @@ export default function Finalize() {
                             </Pdf>
 
                             <Box
-                                w={'1018px'}
-                                // h={'1891px'}
-                                minH={'1500px'}
+                                w={'800px'}
                                 border={'1px solid'}
                             >
                                 {/* @ts-ignore  */}
-                                <Box p={"30px"} ref={ref}>
+                                <Box ref={ref}>
                                     <Resume />
                                 </Box>
                             </Box>
