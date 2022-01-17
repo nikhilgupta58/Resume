@@ -208,6 +208,70 @@ export default function Resume() {
                         >
                             {heading?.email}
                         </Text>
+                        {heading?.phone ?
+                            <>
+                                <Text
+                                    fontSize={'11px'}
+                                    letterSpacing={'0.2px'}
+                                    fontWeight={'bold'}
+                                    color={'#343434'}
+                                    m='15px 0px 2px 0px'
+                                >
+                                    Phone
+                                </Text>
+                                <Text
+                                    fontSize={'11px'}
+                                    color={'#343434'}
+                                    lineHeight={'18px'}
+                                    m='0'
+                                >
+                                    {heading?.phone}
+                                </Text>
+                            </>
+                            : null}
+                        {heading?.github ?
+                            <>
+                                <Text
+                                    fontSize={'11px'}
+                                    letterSpacing={'0.2px'}
+                                    fontWeight={'bold'}
+                                    color={'#343434'}
+                                    m='15px 0px 2px 0px'
+                                >
+                                    GitHub
+                                </Text>
+                                <Text
+                                    fontSize={'11px'}
+                                    color={'#343434'}
+                                    lineHeight={'18px'}
+                                    m='0'
+                                >
+                                    {heading?.github}
+                                </Text>
+                            </>
+                            : null}
+
+                        {heading?.linkdin ?
+                            <>
+                                <Text
+                                    fontSize={'11px'}
+                                    letterSpacing={'0.2px'}
+                                    fontWeight={'bold'}
+                                    color={'#343434'}
+                                    m='15px 0px 2px 0px'
+                                >
+                                    LinkdIn
+                                </Text>
+                                <Text
+                                    fontSize={'11px'}
+                                    color={'#343434'}
+                                    lineHeight={'18px'}
+                                    m='0'
+                                >
+                                    {heading?.linkdin}
+                                </Text>
+                            </>
+                            : null}
                     </Box>
                     {skill.length > 0 ?
                         <Box padding={'20px 0px 0px'} >
