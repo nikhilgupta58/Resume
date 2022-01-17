@@ -292,6 +292,7 @@ export default function Heading() {
                                         _active={{ border: '1px solid blue' }}
                                         _focus={{ border: '1px solid blue' }}
                                         onClick={()=>setStep(-1)}
+                                        borderRadius={'0'}
                                     >
                                         Back
                                     </Button>
@@ -301,6 +302,7 @@ export default function Heading() {
                                         type='submit'
                                         _active={{ border: 'none' }}
                                         _focus={{ border: 'none' }}
+                                        borderRadius={'0'}
                                     >
                                         Next: Work History
                                     </Button>

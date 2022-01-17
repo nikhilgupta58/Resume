@@ -367,6 +367,7 @@ export default function WorkCard({ id, title, subtitle }: { id: number, title: s
                                             px="40px"
                                             _active={{ border: '1px solid blue' }}
                                             _focus={{ border: '1px solid blue' }}
+                                            borderRadius={'0'}
                                         >
                                             Back
                                         </Button>
@@ -377,6 +378,7 @@ export default function WorkCard({ id, title, subtitle }: { id: number, title: s
                                             px="40px"
                                             _active={{ border: 'none' }}
                                             _focus={{ border: 'none' }}
+                                            borderRadius={'0'}
                                         >
                                             Next
                                         </Button>
@@ -414,6 +416,7 @@ const NoExperience = ({ isOpen, onClose }: { isOpen: any, onClose: any }) => {
                                 onClick={() => setStep(2)}
                                 _active={{ border: '1px solid blue' }}
                                 _focus={{ border: '1px solid blue' }}
+                                borderRadius={'0'}
                             >
                                 I DON'T HAVE WORK EXPERIENCE
                             </Button>
@@ -427,6 +430,7 @@ const NoExperience = ({ isOpen, onClose }: { isOpen: any, onClose: any }) => {
                                 onClick={onClose}
                                 _active={{ border: 'none' }}
                                 _focus={{ border: 'none' }}
+                                borderRadius={'0'}
                             >
                                 OK
                             </Button>

@@ -109,6 +109,7 @@ export default function WorkHistory() {
                         px="40px"
                         _active={{border:'1px solid blue'}}
                         _focus={{border:'1px solid blue'}}
+                        borderRadius={'0'}
                     >
                         Back
                     </Button>
@@ -122,6 +123,7 @@ export default function WorkHistory() {
                         px="40px"
                         _active={{border:'none'}}
                         _focus={{border:'none'}}
+                        borderRadius={'0'}
                     >
                         Next: Education
                     </Button>
