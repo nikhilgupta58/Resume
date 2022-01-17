@@ -34,12 +34,18 @@ export default function Section({ setSection: setSectionCheck }: { setSection: (
     const [customValue, setCustomValue] = React.useState('')
     React.useEffect(() => {
         section.map((e) => {
-            if (customSection.current?.value === e.name)
-                setCheck(true)
             if (e.custom)
                 setCustomValue(e.name)
         })
     }, [check])
+
+    React.useEffect(() => {
+        section.map((e) => {
+            if (customSection.current?.value === e.name) {
+                setCheck(true)
+            }
+        })
+    }, [customValue])
     return (
         <>
             <Box m={'15px'} width={{ lg: '50vw', md: '70vw', sm: '70vw' }}>
