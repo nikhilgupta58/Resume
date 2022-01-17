@@ -43,9 +43,9 @@ export default function Preview() {
                 <ModalContent
                     borderRadius="2px"
                     h={'40vw'}
+                    w={'1018px'}
                     minW={'675px'}
                     maxW={'1018px'}
-                    maxH={'891px'}
                     margin={'30px'}
                 >
                     <ModalCloseButton
@@ -74,7 +74,9 @@ export default function Preview() {
                             },
                         }}
                     >
-                        <Resume />
+                        <Box h={'1500px'}>
+                            <Resume />
+                        </Box>
                     </ModalBody>
                 </ModalContent>
             </Modal>
