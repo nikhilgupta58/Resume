@@ -19,9 +19,9 @@ interface Section {
 }
 
 
-export default function AdditionalSection({ title, data, setAdditional }: { title: string, data: Section, setAdditional: (e: boolean) => void }) {
-    const { summary, setSummary } = userStore();
+export default function AdditionalSection({ id, title, data, setAdditional, setSectioNumber }: { id: number, title: string, data: Section, setAdditional: (e: boolean) => void, setSectioNumber: (e: number) => void }) {
     const { section, setSection, removeSection } = userStore()
+    console.log(id);
 
     return (
         <>
@@ -81,7 +81,10 @@ export default function AdditionalSection({ title, data, setAdditional }: { titl
                             bgColor={"white"}
                             border={"1px solid blue"}
                             onClick={() => {
-                                setAdditional(false)
+                                if (id === 1)
+                                    setAdditional(false)
+                                else
+                                    setSectioNumber(id - 1)
                             }}
                             px="40px"
                             _active={{ border: '1px solid blue' }}
@@ -94,6 +97,7 @@ export default function AdditionalSection({ title, data, setAdditional }: { titl
                             colorScheme='red'
                             type='submit'
                             onClick={() => {
+                                setSectioNumber(id + 1)
                             }}
                             px="40px"
                             _active={{ border: 'none' }}
