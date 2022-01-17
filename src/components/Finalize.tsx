@@ -61,6 +61,8 @@ export default function Finalize() {
 
                             <Box
                                 w={'1018px'}
+                                // h={'1891px'}
+                                minH={'1500px'}
                                 border={'1px solid'}
                             >
                                 {/* @ts-ignore  */}
