@@ -66,11 +66,13 @@ export default function Section({ setSection: setSectionCheck }: { setSection: (
 
     if (additonalSection) {
         return (
-            section.map((e, id) => (
-                (id + 1 === currentSection) ?
-                    <AdditionalSection key={id} id={id + 1} title={e.name} data={e} setAdditional={setAdditional} setSectioNumber={setSectioNumber} />
-                    : null
-            ))
+            <>
+                {section.map((e, id) => (
+                    (id + 1 === currentSection) ?
+                        <AdditionalSection key={id} id={id + 1} title={e.name} data={e} setAdditional={setAdditional} setSectioNumber={setSectioNumber} />
+                        : null
+                ))}
+            </>
         )
     }
     else

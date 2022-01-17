@@ -26,6 +26,7 @@ export default function Summary() {
     if (section)
         return (
             <>
+             {/* // @ts-ignore  */}
                 <Section setSection={setCheckSec} />
             </>
         )
