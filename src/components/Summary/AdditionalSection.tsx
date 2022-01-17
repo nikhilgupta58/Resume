@@ -19,7 +19,7 @@ interface Section {
 }
 
 
-export default function AdditionalSection({ title, data }: { title: string, data: Section }) {
+export default function AdditionalSection({ title, data, setAdditional }: { title: string, data: Section, setAdditional: (e: boolean) => void }) {
     const { summary, setSummary } = userStore();
     const { section, setSection, removeSection } = userStore()
 
@@ -81,6 +81,7 @@ export default function AdditionalSection({ title, data }: { title: string, data
                             bgColor={"white"}
                             border={"1px solid blue"}
                             onClick={() => {
+                                setAdditional(false)
                             }}
                             px="40px"
                             _active={{ border: '1px solid blue' }}

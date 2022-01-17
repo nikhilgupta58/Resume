@@ -33,6 +33,11 @@ export default function Section({ setSection: setSectionCheck }: { setSection: (
     const [check, setCheck] = React.useState(false)
     const [customValue, setCustomValue] = React.useState('')
     const [additonalSection, setAdditionalSection] = React.useState(false)
+
+    const setAdditional = (e: boolean) => {
+        setAdditionalSection(e)
+    }
+
     React.useEffect(() => {
         section.map((e) => {
             if (e.custom)
@@ -48,14 +53,10 @@ export default function Section({ setSection: setSectionCheck }: { setSection: (
         })
     }, [customValue])
 
-    if (additonalSection && section.length === 0) {
-        setStep(5)
-    }
-
-    else if (additonalSection) {
+    if (additonalSection) {
         return (
             section.map((e, id) => (
-                <AdditionalSection key={id} title={e.name} data={e} />
+                <AdditionalSection key={id} title={e.name} data={e} setAdditional={setAdditional} />
             ))
         )
     }
@@ -148,7 +149,10 @@ export default function Section({ setSection: setSectionCheck }: { setSection: (
                             colorScheme='red'
                             type='submit'
                             onClick={() => {
-                                setAdditionalSection(true)
+                                if (section.length != 0)
+                                    setAdditionalSection(true)
+                                else
+                                    setStep(5)
                             }}
                             px="40px"
                             _active={{ border: 'none' }}
