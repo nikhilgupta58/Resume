@@ -40,12 +40,15 @@ export default function Resume() {
         <VStack
             alignItems={'flex-start'}
             spacing={0}
+            h='100%'
+            bgColor={'#f4f4f4'}
         >
             <Box
                 bgColor={'#343434'}
                 w='100%'
                 color={'#9b9b9b'}
                 p={'15px 15px 20px'}
+                h='100%'
             >
                 <Text
                     fontSize={'36px'}
@@ -63,13 +66,14 @@ export default function Resume() {
                     {heading?.profession}
                 </Text>
             </Box>
-            <HStack width={'100%'}>
+            <HStack width={'100%'} h='100%'>
                 <Box
                     width={'70%'}
                     letterSpacing={'0.2px'}
                     padding={'15px'}
                     color={'#9b9b9b'}
                     alignSelf={'flex-start'}
+                    bgColor={'white'}
                 >
                     {summary != '' ?
                         <Text
