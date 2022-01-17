@@ -14,7 +14,7 @@ export default function Finalize() {
     return (
         <>
 
-            <Box m={'15px'} width={{ lg: '50vw', md: '70vw', sm: '70vw' }}>
+            <Box m={'15px'} width={{ lg: '70vw', md: '90vw', sm: '90vw' }}>
                 <HStack justifyContent={"space-between"}>
                     <Box
                         pr={"100px"}
@@ -61,7 +61,6 @@ export default function Finalize() {
 
                             <Box
                                 w={'1018px'}
-                                h={'891px'}
                                 border={'1px solid'}
                             >
                                 {/* @ts-ignore  */}

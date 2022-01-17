@@ -103,7 +103,10 @@ export default function Education() {
                             Include every school, even if you're still there or didn't graduate.
                         </Text>
                     </Box>
-                    <Preview />
+
+                    {window.innerWidth >= 1100 ?
+                        <Preview /> : null
+                    }
                 </HStack>
                 <Box
                     p="40px 10px 0 0"
@@ -386,8 +389,8 @@ export default function Education() {
                                         colorScheme='red'
                                         type='submit'
                                         px="40px"
-                                        _active={{border:'none'}}
-                                        _focus={{border:'none'}}
+                                        _active={{ border: 'none' }}
+                                        _focus={{ border: 'none' }}
                                         borderRadius={'0'}
                                     >
                                         Next

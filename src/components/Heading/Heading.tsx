@@ -59,7 +59,9 @@ export default function Heading() {
                             my={'0px'}
                         >We suggest including an email and phone number.</Text>
                     </Box>
-                    <Preview />
+                    {window.innerWidth >= 1100 ?
+                        <Preview /> : null
+                    }
                 </HStack>
                 <Box
                     p="40px 10px 0 0"
@@ -291,7 +293,7 @@ export default function Heading() {
                                         border={"1px solid blue"}
                                         _active={{ border: '1px solid blue' }}
                                         _focus={{ border: '1px solid blue' }}
-                                        onClick={()=>setStep(-1)}
+                                        onClick={() => setStep(-1)}
                                         borderRadius={'0'}
                                     >
                                         Back

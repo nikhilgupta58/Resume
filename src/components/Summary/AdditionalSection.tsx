@@ -38,7 +38,10 @@ export default function AdditionalSection({ id, title, data, setAdditional, setS
                             Tell us about your {title}
                         </Text>
                     </Box>
-                    <Preview />
+
+                    {window.innerWidth >= 1100 ?
+                        <Preview /> : null
+                    }
                 </HStack>
                 <Box
                     p="40px 10px 0 0"

@@ -26,7 +26,7 @@ export default function Summary() {
     if (section)
         return (
             <>
-             {/* // @ts-ignore  */}
+                {/* // @ts-ignore  */}
                 <Section setSection={setCheckSec} />
             </>
         )
@@ -46,7 +46,10 @@ export default function Summary() {
                                 Briefly tell us about your background
                             </Text>
                         </Box>
-                        <Preview />
+
+                        {window.innerWidth >= 1100 ?
+                            <Preview /> : null
+                        }
                     </HStack>
                     <Box
                         p="40px 10px 0 0"

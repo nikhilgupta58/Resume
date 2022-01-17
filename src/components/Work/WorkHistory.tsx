@@ -48,7 +48,7 @@ export default function WorkHistory() {
         setEdit(e)
     }
     if (add != -1) {
-        return (<WorkCard id={highestWorkId()+1} title={'Tell us about another job'} subtitle={'We’ll put your work history in the right order.'} />)
+        return (<WorkCard id={highestWorkId() + 1} title={'Tell us about another job'} subtitle={'We’ll put your work history in the right order.'} />)
     }
 
     else if (edit != -1)
@@ -69,7 +69,10 @@ export default function WorkHistory() {
                         </Text>
 
                     </Box>
-                    <Preview />
+
+                    {window.innerWidth >= 1100 ?
+                        <Preview /> : null
+                    }
                 </HStack>
 
                 <Box>
@@ -107,8 +110,8 @@ export default function WorkHistory() {
                         border={"1px solid blue"}
                         onClick={() => setStep(0)}
                         px="40px"
-                        _active={{border:'1px solid blue'}}
-                        _focus={{border:'1px solid blue'}}
+                        _active={{ border: '1px solid blue' }}
+                        _focus={{ border: '1px solid blue' }}
                         borderRadius={'0'}
                     >
                         Back
@@ -118,11 +121,11 @@ export default function WorkHistory() {
                         colorScheme='red'
                         type='submit'
                         onClick={() => {
-                                setStep(2)
+                            setStep(2)
                         }}
                         px="40px"
-                        _active={{border:'none'}}
-                        _focus={{border:'none'}}
+                        _active={{ border: 'none' }}
+                        _focus={{ border: 'none' }}
                         borderRadius={'0'}
                     >
                         Next: Education

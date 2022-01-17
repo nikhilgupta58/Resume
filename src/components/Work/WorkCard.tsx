@@ -124,7 +124,10 @@ export default function WorkCard({ id, title, subtitle }: { id: number, title: s
                                 {subtitle}
                             </Text>
                         </Box>
-                        <Preview />
+
+                        {window.innerWidth >= 1100 ?
+                            <Preview /> : null
+                        }
                     </HStack>
                     <Box
                         p="40px 10px 0 0"

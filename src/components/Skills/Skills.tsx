@@ -51,7 +51,10 @@ export default function Skills() {
                             What skills would you like to highlight?
                         </Text>
                     </Box>
-                    <Preview />
+
+                    {window.innerWidth >= 1100 ?
+                        <Preview /> : null
+                    }
                 </HStack>
                 <Box
                     p="40px 10px 0 0"

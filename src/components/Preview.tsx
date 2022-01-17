@@ -42,9 +42,11 @@ export default function Preview() {
                 <ModalOverlay />
                 <ModalContent
                     borderRadius="2px"
+                    h={'40vw'}
                     minW={'675px'}
                     maxW={'1018px'}
-                    minH={'891px'}
+                    maxH={'891px'}
+                    margin={'30px'}
                 >
                     <ModalCloseButton
                         right="5"
