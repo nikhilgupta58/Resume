@@ -3,13 +3,16 @@ import * as React from 'react'
 import { stepStore } from "../store";
 import Preview from './Preview';
 import Resume from './Resume';
-import { HiOutlineDocumentDownload } from 'react-icons/hi'
+import { HiOutlineDocumentDownload } from 'react-icons/hi';
+import Pdf from "react-to-pdf";
 
 export default function Finalize() {
     const { setStep } = stepStore();
+    const ref = React.createRef();
 
     return (
         <>
+
             <Box m={'15px'} width={{ lg: '50vw', md: '70vw', sm: '70vw' }}>
                 <HStack justifyContent={"space-between"}>
                     <Box
@@ -29,27 +32,35 @@ export default function Finalize() {
                 >
                     <Box>
                         <HStack spacing={5} mt={"50px"} justifyContent={'space-around'} >
-                            <Box
-                                alignSelf={'flex-start'}
-                                color={'#58585f'}
-                                fontSize={'18px'}
-                                lineHeight={'18px'}
-                                border={'2px solid #dee2e6'}
-                                marginTop={'12px'}
-                                padding={'18px'}
-                                fontWeight={'800'}
-                                bgColor={'gray.300'}
-                                cursor={'pointer'}
-                                _hover={{bgColor:'gray.400'}}
-                            >
-                                <HStack>
-                                    <HiOutlineDocumentDownload />
-                                    <Text
-                                    >Download</Text>
-                                </HStack>
-                            </Box>
+                            <Pdf targetRef={ref} filename="Resume.pdf">
+                                {
+                                    ({ toPdf }) => <Box
+                                        alignSelf={'flex-start'}
+                                        onClick={toPdf}
+                                        color={'#58585f'}
+                                        fontSize={'18px'}
+                                        lineHeight={'18px'}
+                                        border={'2px solid #dee2e6'}
+                                        marginTop={'12px'}
+                                        padding={'18px'}
+                                        fontWeight={'800'}
+                                        bgColor={'gray.300'}
+                                        cursor={'pointer'}
+                                        _hover={{ bgColor: 'gray.400' }}
+                                    >
+                                        <HStack>
+                                            <HiOutlineDocumentDownload />
+                                            <Text
+                                            >Download</Text>
+                                        </HStack>
+                                    </Box>
+                                }
+                            </Pdf>
+
                             <Box minW={'610px'} minH={'893px'} border={'1px solid'}>
-                                <Resume />
+                                <Box ref={ref}>
+                                    <Resume />
+                                </Box>
                             </Box>
                         </HStack>
                     </Box>
