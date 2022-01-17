@@ -61,7 +61,7 @@ export default function Finalize() {
 
                             <Box minW={'610px'} minH={'893px'} border={'1px solid'}>
                                  {/* @ts-ignore  */}
-                                <Box ref={ref}>
+                                <Box p={"30px"} ref={ref}>
                                     <Resume />
                                 </Box>
                             </Box>
