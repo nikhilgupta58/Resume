@@ -4,7 +4,7 @@ import { stepStore } from "../store";
 import Preview from './Preview';
 import Resume from './Resume';
 import { HiOutlineDocumentDownload } from 'react-icons/hi';
- // @ts-ignore 
+// @ts-ignore 
 import Pdf from "react-to-pdf";
 
 export default function Finalize() {
@@ -35,7 +35,7 @@ export default function Finalize() {
                         <HStack spacing={5} mt={"50px"} justifyContent={'space-around'} >
                             <Pdf targetRef={ref} filename="Resume.pdf">
                                 {
-                                     // @ts-ignore 
+                                    // @ts-ignore 
                                     ({ toPdf }) => <Box
                                         alignSelf={'flex-start'}
                                         onClick={toPdf}
@@ -59,8 +59,12 @@ export default function Finalize() {
                                 }
                             </Pdf>
 
-                            <Box minW={'610px'} minH={'893px'} border={'1px solid'}>
-                                 {/* @ts-ignore  */}
+                            <Box
+                                w={'1018px'}
+                                h={'891px'}
+                                border={'1px solid'}
+                            >
+                                {/* @ts-ignore  */}
                                 <Box p={"30px"} ref={ref}>
                                     <Resume />
                                 </Box>

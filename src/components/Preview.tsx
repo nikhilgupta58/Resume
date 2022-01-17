@@ -38,21 +38,40 @@ export default function Preview() {
                 onClose={onClose}
                 scrollBehavior={'inside'}
                 blockScrollOnMount={false}
-                size={'5xl'}
             >
                 <ModalOverlay />
                 <ModalContent
-                    minHeight={"825px"}
-                    maxHeight={"850px"}
                     borderRadius="2px"
+                    minW={'675px'}
+                    maxW={'1018px'}
+                    minH={'891px'}
                 >
                     <ModalCloseButton
                         right="5"
                         mt="2"
                         bgColor={"white"}
                         border={"none"}
+                        color={'#7b97ae'}
+                        _active={{ border: 'none' }}
+                        _focus={{ border: 'none' }}
                     />
-                    <ModalBody p={"30px"}>
+                    <ModalBody
+                        p={"30px"}
+                        sx={{
+                            '&::-webkit-scrollbar': {
+                                width: '7px',
+                                borderRadius: '10px',
+                                backgroundColor: `rgba(0, 0, 0, 0.08)`,
+                                boxShadow: '0 0 1px rgb(0 0 0 / 10%)',
+                                padding: '1px'
+                            },
+                            '&::-webkit-scrollbar-thumb': {
+                                backgroundColor: `#7b97ae`,
+                                padding: '1px',
+                                boxShadow: '0 0 1px rgb(0 0 0 / 10%)',
+                            },
+                        }}
+                    >
                         <Resume />
                     </ModalBody>
                 </ModalContent>
