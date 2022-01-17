@@ -22,7 +22,14 @@ interface Section {
 export default function AdditionalSection({ id, title, data, setAdditional, setSectioNumber }: { id: number, title: string, data: Section, setAdditional: (e: boolean) => void, setSectioNumber: (e: number) => void }) {
     const { section, setSection, removeSection } = userStore()
     console.log(id);
-
+    const descformat = () => {
+        if (data?.desc) {
+            return data?.desc.reduce((acc, curr) => {
+                return acc += curr + '\n'
+            }, '');
+        }
+        return ''
+    }
     return (
         <>
             <Box m={'15px'} width={{ lg: '50vw', md: '70vw', sm: '70vw' }}>
@@ -48,13 +55,13 @@ export default function AdditionalSection({ id, title, data, setAdditional, setS
                 >
                     <Box>
                         <Textarea
-                            value={data?.desc}
+                            defaultValue={descformat()}
                             height={"300px"}
                             id='desc'
                             resize={'none'}
                             placeholder={`Write your ${title} here`}
                             p={'20px'}
-                            onChange={(e) => setSection({ name: title, desc: [...e.target.value.split("\n")], custom: data?.custom })}
+                            onBlur={(e) => setSection({ name: title, desc: [...e.target.value.split("\n")], custom: data?.custom })}
                             sx={{
                                 '&::-webkit-scrollbar': {
                                     width: '7px',

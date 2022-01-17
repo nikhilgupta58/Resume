@@ -43,7 +43,7 @@ export default function Education() {
     const schema = yup.object().shape({
         name: yup.string(),
         location: yup.string(),
-        degree: yup.date(),
+        degree: yup.string(),
         field: yup.string(),
         startDate: yup.string(),
         endDate: yup.date(),

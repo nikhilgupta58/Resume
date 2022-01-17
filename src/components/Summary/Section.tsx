@@ -43,6 +43,11 @@ export default function Section({ setSection: setSectionCheck }: { setSection: (
         setAdditionalSection(e)
     }
 
+    function order(a:any, b:any): number {
+        return a.name < b.name ? -1 : (a.name > b.name ? 1 : 0);
+    }
+
+
     React.useEffect(() => {
         section.map((e) => {
             if (e.custom)
@@ -67,7 +72,7 @@ export default function Section({ setSection: setSectionCheck }: { setSection: (
     if (additonalSection) {
         return (
             <>
-                {section.map((e, id) => (
+                {section.sort(order).map((e, id) => (
                     (id + 1 === currentSection) ?
                         <AdditionalSection key={id} id={id + 1} title={e.name} data={e} setAdditional={setAdditional} setSectioNumber={setSectioNumber} />
                         : null
