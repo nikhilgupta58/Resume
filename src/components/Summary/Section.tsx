@@ -12,7 +12,7 @@ import {
 import * as React from 'react'
 import { stepStore, userStore } from "../../store";
 import Preview from '../Preview';
-
+import AdditionalSection from './AdditionalSection';
 
 export default function Section({ setSection: setSectionCheck }: { setSection: (e: boolean) => void }) {
     const { setStep, step } = stepStore();
@@ -32,6 +32,7 @@ export default function Section({ setSection: setSectionCheck }: { setSection: (
     const customSection = React.useRef<HTMLInputElement>(null);
     const [check, setCheck] = React.useState(false)
     const [customValue, setCustomValue] = React.useState('')
+    const [additonalSection, setAdditionalSection] = React.useState(false)
     React.useEffect(() => {
         section.map((e) => {
             if (e.custom)
@@ -46,6 +47,19 @@ export default function Section({ setSection: setSectionCheck }: { setSection: (
             }
         })
     }, [customValue])
+
+    if (additonalSection && section.length === 0) {
+        setStep(5)
+    }
+
+    else if (additonalSection) {
+        return (
+            section.map((e, id) => (
+                <AdditionalSection key={id} title={e.name} data={e} />
+            ))
+        )
+    }
+
     return (
         <>
             <Box m={'15px'} width={{ lg: '50vw', md: '70vw', sm: '70vw' }}>
@@ -134,7 +148,7 @@ export default function Section({ setSection: setSectionCheck }: { setSection: (
                             colorScheme='red'
                             type='submit'
                             onClick={() => {
-                                // setStep(4)
+                                setAdditionalSection(true)
                             }}
                             px="40px"
                             _active={{ border: 'none' }}
